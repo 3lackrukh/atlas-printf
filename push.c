@@ -40,7 +40,8 @@ int main()
     // Ask what changes have been made
     printf("What changes have you made?");
     fgets(commitMessage, sizeof(commitMessage), stdin);
-    commitMessage[strcspn(commitMessage, "\n")] =   0; // Remove newline character
+    commitMessage[strcspn(commitMessage, "\n")] =   0; 
+    // Remove newline character
     clear_input_buffer(); // Clear the input buffer
 
     // Perform git commit
