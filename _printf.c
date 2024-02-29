@@ -7,11 +7,10 @@
 _printf(const char *format, ...)
 {
 	va_list santa_bag;
-	int i, L1;
+	int i;
+	int char_print = 0;
 
 	va_start (santa_bag, format);
-
-	L1 = strlen(format)
 
 }
 	
