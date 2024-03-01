@@ -6,9 +6,9 @@
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
-int op_char(char a);
-int op_str(char *str);
-int op_int(int n);
-int op_d(signed int n);
+int op_char(va_list santa_bag);
+int op_str(va_list santa_bag);
+int op_int(va_list santa_bag);
+int op_d(va_list santa_bag);
 
 #endif
