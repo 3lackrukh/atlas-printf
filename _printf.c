@@ -15,15 +15,21 @@
  * Return: the number of chars printed.
  */
 
-_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int i, k, total;
 	int char_print = 0;
 	int arg_print = 0;
 	va_list santa_bag;
+	box specifier_calls[] = {
+		{'c', op_char},
+		{'s', op_str},
+		{'d', op_d},
+		{'i', op_int},
+		{'\0', NULL},
+	};
 
 	va_start(santa_bag, format);
-
 	if (format == NULL)
 	{
 		return (-1);
@@ -39,7 +45,7 @@ _printf(const char *format, ...)
 		else
 		{
 			i++;
-			for (k = 0; specifier_calls[k].specifier != NULL; k++)
+			for (k = 0; specifier_calls[k].specifier != '\0'; k++)
 			{
 				if (format[i] == specifier_calls[k].specifier)
 				{
@@ -49,6 +55,6 @@ _printf(const char *format, ...)
 		}
 	}
 	va_end(santa_bag);
-	total = ((char_print + arg_print) - 1);
+	total = (char_print + arg_print);
 	return (total);
 }

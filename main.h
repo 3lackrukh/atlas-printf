@@ -26,12 +26,4 @@ typedef struct box
 	char specifier;
 	int (*function)(va_list);
 	} box;
-
-	box specifier_calls[] = {
-		{'c', op_char},
-		{'s', op_str},
-		{'d', op_d},
-		{'i', op_int},
-		{NULL, NULL},
-	};
 #endif

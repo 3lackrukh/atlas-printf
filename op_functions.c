@@ -81,7 +81,7 @@ int op_d(va_list santa_bag)
 	}
 	if (sign == -1)
 	{
-		str[i++] = '-'
+		str[i++] = '-';
 	}
 /*
  * str length saved to int count.
@@ -127,7 +127,7 @@ int op_int(va_list santa_bag)
  */
 	if (sign == -1)
 	{
-		str[i++] = '-'
+		str[i++] = '-';
 	}
 /*
  * str length saved to int count.
