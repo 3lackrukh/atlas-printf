@@ -1,8 +1,18 @@
 #include "main.h"
 
 /**
+ * _printf- prints a string to standard output
+ * handling the insertion of chars, strings, and
+ * integers into the string at positions designated
+ * with a '%' followed by a designated format operator.
  *
+ * @format: the string to be printed containing 0 or more
+ * format specifiers.
  *
+ * @...: a list containing additional arguments handed in
+ * to be formatted and printed after each specifier. 
+ *
+ * Return: the number of chars printed.
  */
 
 _printf(const char *format, ...)
@@ -33,14 +43,14 @@ _printf(const char *format, ...)
 		return (-1);
 	}
 
-	for(i = 0; format[i] != '\0'; i++) // iterate through string to print
+	for(i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
 			putchar(format[i]);
 			char_print++;
 		}
-		else // % is found
+		else
 		{
 			i ++;
 			for(k = 0; specifier_calls[k].specifier != NULL; k++)
