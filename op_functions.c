@@ -53,7 +53,10 @@ int op_str(va_list santa_bag)
 		i++;
 		count++;
 	}
-	free(str);
+	if (allocated)
+	{
+		free(str);
+	}
 	return (count);
 }
 /**
