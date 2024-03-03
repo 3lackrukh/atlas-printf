@@ -31,6 +31,7 @@ int op_str(va_list santa_bag)
 	char *str = va_arg(santa_bag, char *);
 	int i = 0;
 	int count = 0;
+	int allocated = 0;
 /*
  * using i, iterates through the recieved string,
  * prints each char, and increments count
@@ -41,6 +42,7 @@ int op_str(va_list santa_bag)
 	if (str == NULL)
 	{
 		str = malloc(sizeof(char) * 6);
+		allocated = 1;
 		if (str == NULL)
 		{
 			return (-1);
