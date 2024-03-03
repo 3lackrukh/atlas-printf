@@ -1,0 +1,51 @@
+.TH _PRINTF 1 "March 2024" "Atlas School Partner Project in C - atlas-printf"
+
+.SH NAME
+_printf \- format and print data
+
+.SH SYNOPSIS
+.B #include <stdio.h>
+.br
+.B #include "main.h"
+.br
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+the
+.B _printf
+function writes output to the standard output (stdout) under the control of a format string. The format string is composed of zero or more directives, which control the formatting and insertion of data into an output stream.
+
+The function is similar to the standard C library function printf, but with a limited set of features. It supports the following conversion specifiers:
+.IP \(bu 4
+%c - character
+.IP \(bu 4
+%s - string
+.IP \(bu 4
+%d - decimal integer
+.IP \(bu 4
+%i - integer
+
+.SH RETURN VALUE
+The
+.B _printf
+function returns the number of characters pritned (excluding the null byte used to terminate strings). If an error occurs, it returns -1.
+
+.SH EXAMPLES
+Here's a simple example demonstrating the usage of _printf:
+
+.B #include <stdio.h>
+.br
+.B #include "main.h"
+.br
+.B int main(void)
+.B {
+.B	int len;
+.B	len = _printf("Hello, %s!\n", "world");
+.B	return 0;
+.B }
+
+.SH SEE ALSO
+printf(3), putchar(3)
+
+.SH AUTHOR
+Jaylen Perez and Nathan Rhys
