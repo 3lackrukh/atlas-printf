@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 int _printf(const char *format, ...);
 int op_char(va_list santa_bag);
