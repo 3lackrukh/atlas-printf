@@ -38,13 +38,22 @@ int op_str(va_list santa_bag)
  *
  * count is returned as an int
  */
+	if (str == NULL)
+	{
+		str = malloc(sizeof(char) * 6);
+		if (str == NULL)
+		{
+			return (-1);
+		}
+		str = "(null)";
+	}
 	while (str[i])
 	{
 		putchar(str[i]);
 		i++;
 		count++;
 	}
-
+	free(str);
 	return (count);
 }
 /**
