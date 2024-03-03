@@ -41,13 +41,13 @@ int op_str(va_list santa_bag)
  */
 	if (str == NULL)
 	{
-		str = malloc(sizeof(char) * 6);
+		str = malloc(sizeof(char) * 7);
 		allocated = 1;
 		if (str == NULL)
 		{
 			return (-1);
 		}
-		str = "(null)";
+		strcpy(str, "(null)");
 	}
 	while (str[i])
 	{
