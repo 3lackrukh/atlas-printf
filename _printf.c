@@ -45,6 +45,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
+			if (format[i] = '%')
+			{
+				putchar('%');
+			}
 			for (k = 0; specifier_calls[k].specifier != '\0'; k++)
 			{
 				if (format[i] == specifier_calls[k].specifier)
