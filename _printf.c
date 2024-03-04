@@ -1,25 +1,18 @@
 #include "main.h"
-
 /**
  * _printf- prints a string to standard output
  * handling the insertion of chars, strings, and
  * integers into the string at positions designated
  * with a '%' followed by a designated format operator.
- *
  * @format: the string to be printed containing 0 or more
  * format specifiers.
- *
  * @...: a list containing additional arguments handed in
  * to be formatted and printed after each specifier.
- *
  * Return: the number of chars printed.
  */
-
 int _printf(const char *format, ...)
 {
 	int i, k, match, total;
-	int char_print = 0;
-	int arg_print = 0;
 	va_list santa_bag;
 	box specifier_calls[] = {
 		{'c', op_char},
@@ -30,17 +23,14 @@ int _printf(const char *format, ...)
 	};
 
 	va_start(santa_bag, format);
-	if (format == NULL)
-	{
-		return (-1);
-	}
+	if (format == NULL) return (-1);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
 			putchar(format[i]);
-			char_print++;
+			total++;
 		}
 		else
 		{
@@ -48,29 +38,26 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 			{
 				putchar('%');
-				char_print++;
+				total++;
 			}
 			for (k = 0; specifier_calls[k].specifier != '\0'; k++)
 			{
 				if (format[i] == specifier_calls[k].specifier)
 				{
-					arg_print += (specifier_calls[k].function(santa_bag));
+					total += (specifier_calls[k].function(santa_bag));
 					match = 1;
 					break;
 				}
 			}
-			if(!match && format[i] != ' ' && format[i] != '\0' && format[i] != '%')
+			if (!match && format[i] != ' ' && format[i] != '\0' && format[i] != '%')
 			{
 				putchar('%');
-				char_print++;
 				putchar(format[i]);
-				char_print++;
+				total += 2;
 			}
 			match = 0;
 		}
 	}
 	va_end(santa_bag);
-	total = (char_print + arg_print);
-	printf("%i\n", total);
 	return (total);
 }
