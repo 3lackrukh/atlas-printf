@@ -78,10 +78,21 @@ int op_d(va_list santa_bag)
  * potential '-' symbol in the case of a negative value
  */
 	int i, count;
+	int overflow = 0;
 	int num = va_arg(santa_bag, int);
 	int sign = num < 0 ? -1 : 1;
 	char str[11];
 
+	if (num == 0)
+	{
+		putchar('0');
+		return (1);
+	}
+	if (num == INT_MIN)
+	{
+		overflow = 1;
+		num += 1;
+	}
 	num *= sign;
 /*
  * convert each digit of num to chars
@@ -90,6 +101,13 @@ int op_d(va_list santa_bag)
  */
 	for (i = 0; num > 0; i++)
 	{
+		if (overflow)
+		{
+			str[i] = (num % 10) + '1';
+			num /= 10;
+			overflow = 0;
+			i++;
+		}
 		str[i] = (num % 10) + '0';
 		num /= 10;
 	}
@@ -120,10 +138,21 @@ int op_d(va_list santa_bag)
 int op_int(va_list santa_bag)
 {
 	int i, count;
+       	int overflow = 0;
 	int num = va_arg(santa_bag, int);
 	int sign = num < 0 ? -1 : 1;
 	char str[11];
 
+	if (num == 0)
+	{
+		putchar('0');
+		return (1);
+	}
+	if (num == INT_MIN)
+	{
+		overflow = 1;
+		num += 1;
+	}
 	num *= sign;
 /*
  * convert each digit of num to chars
@@ -132,6 +161,13 @@ int op_int(va_list santa_bag)
  */
 	for (i = 0; num > 0; i++)
 	{
+		if (overflow)
+		{
+			str[i] = (num % 10) + '1';
+			num /= 10;
+			overflow = 0;
+			i++;
+		}
 		str[i] = (num % 10) + '0';
 		num /= 10;
 	}

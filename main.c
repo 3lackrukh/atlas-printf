@@ -53,16 +53,16 @@ int main(void)
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
 
-	_printf("%d", 0);
-	printf("%d", 0);
-	_printf("%d", INT_MIN);
-	printf("%d", INT_MIN);
+	_printf("%d\n", 0);
+	printf("%d\n", 0);
+	_printf("%d\n", INT_MIN);
+	printf("%d\n", INT_MIN);
 	_printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
-	_printf("%i", 0);
-	printf("%i", 0);
-	_printf("%i", INT_MIN);
-	printf("%i", INT_MIN);
+	_printf("%i\n", 0);
+	printf("%i\n", 0);
+	_printf("%i\n", INT_MIN);
+	printf("%i\n", INT_MIN);
 	_printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 	printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
     return (0);

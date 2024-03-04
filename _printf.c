@@ -12,7 +12,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, k, match, total;
+	int i, k, match;
+	int total = 0;
 	va_list santa_bag;
 	box specifier_calls[] = {
 		{'c', op_char},
