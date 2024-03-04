@@ -7,6 +7,9 @@
 c #include <stdio.h> #include "main.h"
 int `_printf`(const char `*format`, ...);
 
+## FLOWCHART
+![Flowchart](/flowchart_printf.png)
+
 ## DESCRIPTION
 The `_printf` function writes output to the standard output (stdout) under the control of a format string. The format string is composed of zero or more directives, which control the formatting and insertion of data into an output stream.
 
