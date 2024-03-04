@@ -17,7 +17,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, k, total;
+	int i, k, match, total;
 	int char_print = 0;
 	int arg_print = 0;
 	va_list santa_bag;
@@ -48,14 +48,24 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 			{
 				putchar('%');
+				char_print++;
 			}
 			for (k = 0; specifier_calls[k].specifier != '\0'; k++)
 			{
 				if (format[i] == specifier_calls[k].specifier)
 				{
 					arg_print += (specifier_calls[k].function(santa_bag));
+					match = 1;
+					break;
 				}
 			}
+			if(!match && format[i] != ' ' && format[i] != '\0' && format[i] != '%')
+			{
+				putchar('%');
+				putchar(format[i]);
+				char_print++;
+			}
+			match = 0;
 		}
 	}
 	va_end(santa_bag);
