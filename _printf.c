@@ -16,13 +16,8 @@ int _printf(const char *format, ...)
 	int i, k, match;
 	int total = 0;
 	va_list santa_bag;
-	box specifier_calls[] = {
-		{'c', op_char},
-		{'s', op_str},
-		{'d', op_d},
-		{'i', op_int},
-		{'\0', NULL},
-	};
+	box specifier_calls[] = {{'c', op_char}, {'s', op_str}, {'d', op_d},
+		{'i', op_int}, {'\0', NULL}};
 
 	va_start(santa_bag, format);
 	if (format == NULL)
