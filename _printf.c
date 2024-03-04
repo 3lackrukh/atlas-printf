@@ -62,6 +62,7 @@ int _printf(const char *format, ...)
 			if(!match && format[i] != ' ' && format[i] != '\0' && format[i] != '%')
 			{
 				putchar('%');
+				char_print++;
 				putchar(format[i]);
 				char_print++;
 			}
@@ -70,5 +71,6 @@ int _printf(const char *format, ...)
 	}
 	va_end(santa_bag);
 	total = (char_print + arg_print);
+	printf("%i\n", total);
 	return (total);
 }
