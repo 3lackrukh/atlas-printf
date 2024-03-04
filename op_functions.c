@@ -32,13 +32,7 @@ int op_str(va_list santa_bag)
 	int i = 0;
 	int count = 0;
 	int allocated = 0;
-/*
- * using i, iterates through the recieved string,
- * prints each char, and increments count
- * until the '\0' is reached.
- *
- * count is returned as an int
- */
+
 	if (str == NULL)
 	{
 		str = malloc(sizeof(char) * 7);
@@ -70,13 +64,6 @@ int op_str(va_list santa_bag)
  */
 int op_d(va_list santa_bag)
 {
-/*
- * @i: iterator to scan through converted string
- * @count: holds the value of printed chars to return.
- * @sign: checks if the int recieved is of negative value.
- * @str allocates memory for max digits of int and a
- * potential '-' symbol in the case of a negative value
- */
 	int i, count;
 	int overflow = 0;
 	int num = va_arg(santa_bag, int);
@@ -94,11 +81,6 @@ int op_d(va_list santa_bag)
 		num += 1;
 	}
 	num *= sign;
-/*
- * convert each digit of num to chars
- * the remainder of division by 10 is converted to
- * ASCII value by adding 55 or '0' & stored in string str.
- */
 	for (i = 0; num > 0; i++)
 	{
 		if (overflow)
@@ -112,13 +94,7 @@ int op_d(va_list santa_bag)
 		num /= 10;
 	}
 	if (sign == -1)
-	{
 		str[i++] = '-';
-	}
-/*
- * str length saved to int count.
- * decriment through the string and print each char,
- */
 	count = i;
 	i--;
 	while (i >= 0)
@@ -138,7 +114,7 @@ int op_d(va_list santa_bag)
 int op_int(va_list santa_bag)
 {
 	int i, count;
-       	int overflow = 0;
+	int overflow = 0;
 	int num = va_arg(santa_bag, int);
 	int sign = num < 0 ? -1 : 1;
 	char str[11];
@@ -154,11 +130,6 @@ int op_int(va_list santa_bag)
 		num += 1;
 	}
 	num *= sign;
-/*
- * convert each digit of num to chars
- * the remainder of division by 10 is converted to
- * its ASCII value by adding 55 or '0'& stored in string.
- */
 	for (i = 0; num > 0; i++)
 	{
 		if (overflow)
@@ -171,18 +142,8 @@ int op_int(va_list santa_bag)
 		str[i] = (num % 10) + '0';
 		num /= 10;
 	}
-/*
- * once each digit is stored,
- * if num was - '-' is added to the end of the string.
- */
 	if (sign == -1)
-	{
 		str[i++] = '-';
-	}
-/*
- * str length saved to int count.
- * decriment through the string and print each char,
- */
 	count = i;
 	i--;
 	while (i >= 0)

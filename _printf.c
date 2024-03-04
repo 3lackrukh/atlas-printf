@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf- prints a string to standard output
  * handling the insertion of chars, strings, and
@@ -24,10 +25,9 @@ int _printf(const char *format, ...)
 	};
 
 	va_start(santa_bag, format);
-	if (format == NULL) return (-1);
-
+	if (format == NULL)
+		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
-	{
 		if (format[i] != '%')
 		{
 			putchar(format[i]);
@@ -42,14 +42,11 @@ int _printf(const char *format, ...)
 				total++;
 			}
 			for (k = 0; specifier_calls[k].specifier != '\0'; k++)
-			{
 				if (format[i] == specifier_calls[k].specifier)
 				{
 					total += (specifier_calls[k].function(santa_bag));
 					match = 1;
-					break;
 				}
-			}
 			if (!match && format[i] != ' ' && format[i] != '\0' && format[i] != '%')
 			{
 				putchar('%');
@@ -58,7 +55,6 @@ int _printf(const char *format, ...)
 			}
 			match = 0;
 		}
-	}
 	va_end(santa_bag);
 	return (total);
 }
